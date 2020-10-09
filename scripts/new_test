@@ -1,0 +1,31 @@
+#!/bin/bash
+if [[ $# -ne 2 ]]
+  then
+    echo "Not enough arguments supplied, needs spec type (lower case) and a class_name (snake_case)"
+    echo "Usage: script/new_test TYPE CLASS_NAME"
+    exit 1
+fi
+
+valid_type="^(controller)|(model)|(view)|(helper)|(mailer)|(request)|(channel)"
+
+if [[ $1 =~ $valid_type ]]
+  then
+  mkdir -p spec/$1s
+  else
+    echo "Unsupported test type '$1' currently supported:"
+    echo "controller|model|view|helper|mailer|request"
+    exit 1
+fi
+
+arr=(${2//_/ })
+printf -v class_name %s "${arr[@]^}"
+cat > spec/$1s/$2_spec.rb << SPEC
+require 'rails_helper'
+
+RSpec.describe $class_name, type: :$1 do
+  pending "add some examples to (or delete) #{__FILE__}"
+end
+SPEC
+
+
+

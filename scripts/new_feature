@@ -1,0 +1,18 @@
+if [[ $# -ne 1 ]]
+  then
+    echo "Not enough arguments supplied, needs feature_name (snake_case)"
+    echo "Usage: script/new_feature CLASS_NAME"
+    exit 1
+fi
+
+mkdir -p spec/features
+
+arr=(${1//_/ })
+printf -v feature_name '%s ' "${arr[@]}"
+cat > spec/features/$1_spec.rb << SPEC
+require 'rails_helper'
+
+RSpec.feature "$feature_name", type: :feature do
+  pending "add some examples to (or delete) #{__FILE__}"
+end
+SPEC

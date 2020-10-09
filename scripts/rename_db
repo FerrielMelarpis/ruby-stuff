@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+# Rails generates a database name based on the name of the project, this script
+# will update it to a new one so that multiple challenges won't cause conflicts
+# with the database name already taken.
+
+if ARGV.empty?
+  puts 'please pass a name for the new database script/rename_db NEWNAME'
+  exit
+end
+
+new_db_name = ARGV.first
+FILE_PATH = './config/database.yml'
+file = File.read(FILE_PATH)
+
+data = file.gsub(/rails_challenge_template/i) do |match|
+  match == 'RAILS_CHALLENGE_TEMPLATE' ? new_db_name.upcase : new_db_name
+end
+
+File.open(FILE_PATH, 'w').write(data)
