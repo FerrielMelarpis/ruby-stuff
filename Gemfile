@@ -40,6 +40,8 @@ group :test do
   gem 'shoulda-matchers'
   # Use factories instead of fixtures for test data
   gem 'factory_bot_rails'
+  # Capybara as a webdriver
+  gem 'capybara'
 end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
