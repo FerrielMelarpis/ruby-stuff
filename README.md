@@ -1,24 +1,7 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Rails Profile Form Challenge
+## Setup
+* Make a fork of this repo
+* Clone your fork to your local development environment
+* Install dependencies bundle install
+* Check node dependencies yarn install --check-files
+* run rails s and check that everything is working (you should see welcome to rails!)
