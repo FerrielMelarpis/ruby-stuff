@@ -1,1 +1,7 @@
-<h1> Show Profile </h1>
+<h1><%= @profile.name %></h1>
+
+<h2>Addresses</h2>
+<%= @profile.addresses.each do |address| %>
+  <%= "#{address.street}, #{address.city}, #{address.state}, #{address.postcode}"  %>
+<% end %>
+
