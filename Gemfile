@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.0'
+ruby '2.7.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
@@ -40,6 +40,8 @@ group :test do
   gem 'shoulda-matchers'
   # Use factories instead of fixtures for test data
   gem 'factory_bot_rails'
+  # Capybara as a webdriver
+  gem 'capybara'
 end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
