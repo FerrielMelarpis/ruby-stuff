@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "When submiting a profile with an address", type: :feature do
+RSpec.feature "When submitting a profile with an address", type: :feature do
   scenario 'they see the addresses on the submitted profile' do
     profile = attributes_for(:profile) 
     addresses = [attributes_for(:address), attributes_for(:address)]

@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
 
     def create
         @profile = Profile.create(profile_params)
-        redirect_to profiles_path
+        redirect_to @profile
         #finish logic for creating a record
     end
 
