@@ -1,1 +1,13 @@
+<%= stylesheet_link_tag 'profiles/nav', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<ul>
+  <li class="nav-item">
+    <%= link_to("Profiles", profiles_path) %>
+  </li>
+</ul>
+
+<hr />
+
 <h1> Edit Profile </h1>
+
+<%= render "form", profile: @profile %>

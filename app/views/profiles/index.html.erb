@@ -1,1 +1,34 @@
+<%= stylesheet_link_tag 'profiles/index', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <h1> List Profiles </h1>
+
+<% if !@profiles.empty? %>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Bio</th>
+        <th colspan="3">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @profiles.each do |profile| %>
+        <tr>
+          <td><%= profile.id %></td>
+          <td><%= profile.name %></td>
+          <td><%= profile.age %></td>
+          <td><%= profile.bio %></td>
+          <td><%= link_to 'Show', profile_path(profile) %></td>
+          <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+          <td><%= link_to 'Delete', profile_path(profile),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<%= button_to 'Create profile', new_profile_path, :method => "get" %>
